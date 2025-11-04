@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-background">
+    <section className="pt-5 pb-16 md:pt-5 md:pb-5 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-background">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-8">
           <div className="space-y-6">
@@ -38,13 +38,6 @@ export default function Hero() {
             >
               Nossos Serviços
             </Link>
-          </div>
-
-          <div className="pt-12">
-            <div className="space-y-1">
-              <p className="text-3xl md:text-4xl font-bold text-accent">500+</p>
-              <p className="text-sm text-muted-foreground">Clientes Atendidos</p>
-            </div>
           </div>
         </div>
       </div>

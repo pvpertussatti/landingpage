@@ -9,7 +9,7 @@ export default function CTA() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
+    phone: "",
     message: "",
   })
 
@@ -45,7 +45,7 @@ export default function CTA() {
 
       setSubmitted(true)
       setTimeout(() => {
-        setFormData({ name: "", email: "", company: "", message: "" })
+        setFormData({ name: "", email: "", phone: "", message: "" })
         setSubmitted(false)
       }, 3000)
     } catch (err) {
@@ -63,7 +63,7 @@ export default function CTA() {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Pronto para otimizar sua infraestrutura?</h2>
               <p className="text-lg text-muted opacity-90">
-                Entre em contato e receba um diagnóstico personalizado para sua empresa
+                Entre em contato e receba um diagnóstico personalizado para você ou sua empresa
               </p>
             </div>
 
@@ -118,14 +118,14 @@ export default function CTA() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Empresa</label>
+              <label className="block text-sm font-medium mb-2">Telefone</label>
               <input
                 type="text"
-                name="company"
-                value={formData.company}
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 disabled={loading}
-                placeholder="Sua empresa"
+                placeholder="Seu telefone"
                 className="w-full px-4 py-2 bg-background/10 border border-background/20 rounded-lg text-background placeholder-muted focus:outline-none focus:border-accent transition disabled:opacity-50"
               />
             </div>
