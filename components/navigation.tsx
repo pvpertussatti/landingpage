@@ -20,6 +20,9 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
+             <Link href="#about" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Sobre
+            </Link>
             <Link href="#services" className="text-sm text-muted-foreground hover:text-foreground transition">
               Serviços
             </Link>
@@ -48,6 +51,9 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-3">
+            <Link href="#about" className="block text-sm text-muted-foreground hover:text-foreground">
+              Sobre
+            </Link>
             <Link href="#services" className="block text-sm text-muted-foreground hover:text-foreground">
               Serviços
             </Link>
