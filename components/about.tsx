@@ -14,10 +14,10 @@ export default function About() {
 
 
                             <div className="space-y-8 text-lg md:text-xl text-muted-foreground leading-relaxed">
-                                <p>
-                                    Na PROPV, nossa missão é simplificar a tecnologia e garantir que tudo funcione com máxima eficiência. <br/> Atuamos com atendimento técnico presencial, levando soluções completas até você seja em casa, no escritório ou na sua empresa.
-
-                                    Com experiência prática e conhecimento técnico especializado, oferecemos suporte em hardware, redes, servidores e automação. Nosso foco é entregar resultados rápidos, confiáveis e sob medida, sempre com atendimento humano e profissional.
+                                <p className='text-justify'>
+                                    Na PROPV, nossa missão é atender às necessidades dos clientes com qualidade, agilidade e  eficiência. Oferecemos atendimento técnico presencial e soluções completas em tecnologia, onde quer que você esteja — em casa, no escritório ou na sua empresa.
+Com experiência prática e conhecimento técnico especializado, atuamos com microinformática, hardware, infraestrutura, redes, servidores e automação. Garantindo resultados rápidos, confiáveis e sob medida.
+Nosso compromisso é proporcionar um atendimento humano, próximo e profissional.
                                 </p>
                             </div>
                         </div>
