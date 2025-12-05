@@ -5,19 +5,16 @@ const services = [
     icon: Cpu,
     title: "Informática e Microinformática",
     description: ["- Manutenções Preventivas ou Corretivas", "- Atualização de drivers e Software", "- Upgrade e Reparo de Hardware", "- Análises e Diagnósticos", "- Suporte Técnico"],
-    highlight: "Testes rigorosos",
   },
   {
     icon: Network,
     title: "Infraestrutura de Rede",
     description: ["- Cabeamento Estruturado e Conectorização", "- Identificação e Verificação do Cabeamento", "- Readequação e Reestruturação", "- Expansão e Migração de Rede", "- Medições e teste Port Flash"],
-    highlight: "Performance máxima",
   },
   {
     icon: Server,
     title: "Servidores e Rack Server",
     description: ["- Montagem, Organização e Manutenções", "- Upgrade e Migração de Tecnologia", "- Medições de Fibra Óptica e Rede LAN", "- Testes de comprimento de cabo CAT5/CAT6", "- Testes de Porta PoE"],
-    highlight: "Disponibilidade garantida",
   },
   // {
   //   icon: Lock,
@@ -29,19 +26,17 @@ const services = [
     icon: Zap,
     title: "PDVs e Automação Comercial",
     description: ["- Instalações e Atualizações", "- Manutenções no Hardware e Periféricos","- Migração ou Atualização de Software"],
-    highlight: "Eficiência operacional",
   },
   {
     icon: BarChart3,
     title: "Suporte Field Service",
-    description: ["Atendimentos Técnicos Especializado", "- Comunicação Eficaz e Empatia ao Cliente", "- Resolução de Problemas e Adaptabilidade"],
-    highlight: "Resposta imediata",
+    description: ["- Atendimentos Técnicos Especializado", "- Comunicação Eficaz e Empatia ao Cliente", "- Resolução de Problemas e Adaptabilidade"],
   },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="py-10 md:py-12 px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-5 md:py-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="space-y-4 mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">
@@ -74,9 +69,6 @@ export default function Services() {
                       </p>
                     )
                   })}
-                  <div className="mt-4 pt-4 border-t border-border/50">
-                    <p className="text-accent text-xs font-semibold uppercase tracking-wide">{service.highlight}</p>
-                  </div>
                 </div>
               </div>
             )

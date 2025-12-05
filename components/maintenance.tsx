@@ -4,20 +4,30 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 
 export default function Maintenance() {
+  const [currentNotebookImage, setCurrentNotebookImage] = useState(0)
   const [currentNetworkImage, setCurrentNetworkImage] = useState(0)
 
+  const notebookImages = ["/notebook-maintenance.jpg", "/pc.jpeg"]
   const networkImages = ["/img-1.jpeg", "/img-2.jpeg"]
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const notebookInterval = setInterval(() => {
+      setCurrentNotebookImage((prev) => (prev + 1) % notebookImages.length)
+    }, 3000)
+
+    const networkInterval = setInterval(() => {
       setCurrentNetworkImage((prev) => (prev + 1) % networkImages.length)
     }, 3000)
-    return () => clearInterval(interval)
+
+    return () => {
+      clearInterval(notebookInterval)
+      clearInterval(networkInterval)
+    }
   }, [])
 
   return (
-    <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-32">
+    <section className="py-10 md:py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-12">
         {/* Seção de Manutenção de Notebook/Desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 order-2 lg:order-1">
@@ -61,12 +71,21 @@ export default function Maintenance() {
           </div>
 
           <div className="order-1 lg:order-2 relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
-            <Image
-              src="/notebook-maintenance.jpg"
-              alt="Manutenção profissional de notebook"
-              fill
-              className="object-cover rounded-lg"
-            />
+            {notebookImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  currentNotebookImage === index ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt={`Manutenção profissional de notebook ${index + 1}`}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
