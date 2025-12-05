@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+    <section className="relative pt-2 pb-2 md:pt-3 md:pb-3 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
           {/* Lado Esquerdo - Texto */}
@@ -76,7 +76,7 @@ export default function Hero() {
                     key={image.src}
                     className={`absolute inset-0 transition-all duration-700 ease-in-out ${mobileClasses} ${desktopClasses}`}
                   >
-                    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
+                    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
                       <div className="relative w-full h-full rounded-2xl overflow-hidden">
                         <Image
                           src={image.src}
