@@ -17,73 +17,88 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative pt-24 pb-32 md:pt-32 md:pb-40 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] md:min-h-[700px] flex item-center">
-      <div className="absolute inset-0 z-0">
-        {images.map((image, index) => (
-          <div
-            key={image.src}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImage ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/75 via-slate-900/75 to-red-900/60 z-10" />
-
-      <div className="max-4xl mx-auto relative z-20">
-        <div className="space-y-8">
-          <div className="space-y-1/4">
-            <h1 className="py-10 text-5xl md:-text-6xl lg:text-7xl font-bold text-white leading-ti-fate-in-up">
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
+          {/* Lado Esquerdo - Texto */}
+          <div className="space-y-8 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
               Suporte técnico <br />
-              <span className="text-red-400">onde você estiver.</span>
+              <span className="text-accent">onde você estiver.</span>
             </h1>
 
-            <p className="text-lg text-justify md:text-xl text-slate-200 max-w-2xl leading-relaxed animate-fade-in-up">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
               Especialista em soluções técnicas. Manutenções preventivas e
               corretivas, infraestrutura crítica e suporte técnico. Garantimos
-              máxima performance para seu negócio. ”
+              máxima performance para seu negócio.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
                 href={"#contact"}
-                className="px-8 py-3 bg-red-500 text-white rounded-full font-semibold transition-all flex items-center justify-center gap-2 shadow-lg "
+                className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
               >
                 Solicitar serviço <ArrowRight size={18} />
               </Link>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImage(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentImage
-                ? "bg-red-400 w-8"
-                : "bg-white/50 hover:bg-white/70"
-            }`}
-            aria-label={`Ir para imagem ${index + 1}`}
-          />
-        ))}
+          {/* Lado Direito - Carrossel de Imagens */}
+          <div className="relative h-[500px] lg:h-[600px] flex items-center justify-center">
+            <div className="relative w-full h-full max-w-lg mx-auto">
+              {images.map((image, index) => {
+                const position = (index - currentImage + images.length) % images.length;
+
+                return (
+                  <div
+                    key={image.src}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                      position === 0
+                        ? "opacity-100 scale-100 z-30 translate-x-0"
+                        : position === 1
+                        ? "opacity-40 scale-90 z-20 translate-x-[60%]"
+                        : "opacity-20 scale-80 z-10 -translate-x-[60%]"
+                    }`}
+                  >
+                    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Indicadores */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentImage
+                      ? "bg-accent w-8"
+                      : "bg-slate-300 w-2 hover:bg-slate-400"
+                  }`}
+                  aria-label={`Ir para imagem ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

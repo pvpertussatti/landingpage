@@ -13,15 +13,15 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-accent/5"
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-accent"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
               Por que me escolher?
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/90">
               Com experiência técnica avançada, transformo desafios complexos em
               soluções robustas e eficientes
             </p>
@@ -32,9 +32,9 @@ export default function Features() {
               <div key={index} className="flex items-start gap-3">
                 <CheckCircle2
                   size={20}
-                  className="text-accent mt-0.5 flex-shrink-0"
+                  className="text-white mt-0.5 flex-shrink-0"
                 />
-                <p className="text-foreground font-medium">{feature}</p>
+                <p className="text-white font-medium">{feature}</p>
               </div>
             ))}
           </div>
