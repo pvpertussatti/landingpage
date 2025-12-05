@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
-import type React from "react"
-import { ArrowRight, MessageCircle } from "lucide-react"
+import type React from "react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function CTA() {
   const [formData, setFormData] = useState({
@@ -11,24 +11,26 @@ export default function CTA() {
     email: "",
     phone: "",
     message: "",
-  })
+  });
 
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
       const response = await fetch("/api/contact", {
@@ -37,33 +39,38 @@ export default function CTA() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error("Erro ao enviar formulário")
+        throw new Error("Erro ao enviar formulário");
       }
 
-      setSubmitted(true)
+      setSubmitted(true);
       setTimeout(() => {
-        setFormData({ name: "", email: "", phone: "", message: "" })
-        setSubmitted(false)
-      }, 3000)
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setSubmitted(false);
+      }, 3000);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erro desconhecido")
+      setError(err instanceof Error ? err.message : "Erro desconhecido");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-foreground text-background">
+    <section
+      id="contact"
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-foreground text-background"
+    >
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Pronto para otimizar sua infraestrutura?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                 Pronto para elevar o desempenho de seus equipamentos?{" "}
+              </h2>
               <p className="text-lg text-muted opacity-90">
-                Entre em contato e receba um diagnóstico personalizado para você ou sua empresa
+                Entre em contato, estaremos à disposição para responder prontamente.
               </p>
             </div>
 
@@ -72,7 +79,7 @@ export default function CTA() {
                 <h3 className="font-semibold mb-2">Informações</h3>
                 <ul className="space-y-2 text-sm text-muted opacity-90">
                   <li>Email: contato@propv.com.br</li>
-                  <li>Localização: Barreiros, SC - Brasil</li>
+                  <li>Localização: Rua Gisela, 905 – Barreiros, São José / SC 88110-110 – Brasil</li>
                 </ul>
               </div>
             </div>
@@ -145,7 +152,9 @@ export default function CTA() {
             </div>
 
             {error && (
-              <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-200 text-sm">{error}</div>
+              <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-200 text-sm">
+                {error}
+              </div>
             )}
 
             <button
@@ -153,12 +162,16 @@ export default function CTA() {
               disabled={loading || submitted}
               className="w-full px-8 py-3 bg-accent text-accent-foreground rounded-full font-semibold hover:opacity-90 transition flex items-center justify-center gap-2 disabled:opacity-50"
             >
-              {submitted ? "Mensagem Enviada!" : loading ? "Enviando..." : "Solicitar Atendimento"}
+              {submitted
+                ? "Mensagem Enviada!"
+                : loading
+                ? "Enviando..."
+                : "Solicitar Atendimento"}
               {!submitted && !loading && <ArrowRight size={18} />}
             </button>
           </form>
         </div>
       </div>
     </section>
-  )
+  );
 }

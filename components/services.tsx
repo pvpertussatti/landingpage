@@ -4,37 +4,37 @@ const services = [
   {
     icon: Cpu,
     title: "Informática e Microinformática",
-    description: ["- Manutenção Preventiva", "- Manutenção Corretiva", "- Análises e Diagnósticos", "- Formatações"],
+    description: ["- Manutenções Preventivas ou Corretivas", "- Atualização de drivers e Software", "- Upgrade e Reparo de Hardware", "- Análises e Diagnósticos", "- Suporte Técnico"],
     highlight: "Testes rigorosos",
   },
   {
     icon: Network,
     title: "Infraestrutura de Rede",
-    description: ["- Cabeamento Estruturado", "- Readequação e Reestruturação", "- Teste e Verificação de Cabeamento", "- Configuração e Projetos"],
+    description: ["- Cabeamento Estruturado e Conectorização", "- Identificação e Verificação do Cabeamento", "- Readequação e Reestruturação", "- Expansão e Migração de Rede", "- Medições e teste Port Flash"],
     highlight: "Performance máxima",
   },
   {
     icon: Server,
-    title: "Servidores & Data Centers",
-    description: ["- Montagem de Rack 's", "- Organização e Configuração", "- Manutenções"],
+    title: "Servidores e Rack Server",
+    description: ["- Montagem, Organização e Manutenções", "- Upgrade e Migração de Tecnologia", "- Medições de Fibra Óptica e Rede LAN", "- Testes de comprimento de cabo CAT5/CAT6", "- Testes de Porta PoE"],
     highlight: "Disponibilidade garantida",
   },
-  {
-    icon: Lock,
-    title: "Backup & Recuperação",
-    description: ["Soluções seguras com redundância e proteção de dados"],
-    highlight: "Segurança em primeiro lugar",
-  },
+  // {
+  //   icon: Lock,
+  //   title: "Backup & Recuperação",
+  //   description: ["Soluções seguras com redundância e proteção de dados"],
+  //   highlight: "Segurança em primeiro lugar",
+  // },
   {
     icon: Zap,
-    title: "Sistemas & Automação",
-    description: ["Instalação de SO e automação comercial avançada"],
+    title: "PDVs e Automação Comercial",
+    description: ["- Instalações e Atualizações", "- Manutenções no Hardware e Periféricos","- Migração ou Atualização de Software"],
     highlight: "Eficiência operacional",
   },
   {
     icon: BarChart3,
     title: "Suporte Field Service",
-    description: ["Atendimento técnico especializado no local com soluções rápidas"],
+    description: ["Atendimentos Técnicos Especializado", "- Comunicação Eficaz e Empatia ao Cliente", "- Resolução de Problemas e Adaptabilidade"],
     highlight: "Resposta imediata",
   },
 ]
@@ -50,7 +50,7 @@ export default function Services() {
 
           <div className="w-16 h-1 bg-accent"></div>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Soluções técnicas abrangentes para empresas que demandam confiabilidade e performance
+            Soluções técnicas abrangentes, que demandam confiabilidade e performance. 
           </p>
         </div>
 

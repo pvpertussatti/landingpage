@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export default function Expertise() {
   return (
@@ -20,11 +20,15 @@ export default function Expertise() {
           <div className="order-1 md:order-2 space-y-6">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Manutenção Profissional de Notebooks
+                Precisa de manutenção no seu notebook ou desktop?
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Serviço especializado em diagnóstico, limpeza e reparação de componentes. Trabalho com precisão e
-                ferramentas profissionais para garantir máxima performance do seu equipamento.
+                praticidade Realizamos atendimentos em domicílio, empresas e
+                estabelecimentos comerciais, oferecendo e agilidade para você ou
+                seu negócio. Também contamos com um sistema de leva e traz para
+                o nosso laboratório, onde utilizamos ferramentas profissionais e
+                processos técnicos avançados para garantir a máxima eficiência
+                do seu equipamento.
               </p>
             </div>
 
@@ -32,22 +36,34 @@ export default function Expertise() {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Diagnóstico Completo</h3>
-                  <p className="text-sm text-muted-foreground">Análise detalhada de hardware e software</p>
+                  <h3 className="font-semibold text-foreground">
+                    Diagnóstico Completo
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Análise detalhada de hardware e software
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Limpeza Profissional</h3>
-                  <p className="text-sm text-muted-foreground">Remoção de poeira e otimização térmica</p>
+                  <h3 className="font-semibold text-foreground">
+                    Limpeza Profissional
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Remoção de poeira e otimização térmica
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Reparação Especializada</h3>
-                  <p className="text-sm text-muted-foreground">Troca de componentes com garantia</p>
+                  <h3 className="font-semibold text-foreground">
+                    Reparação Especializada
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Troca de componentes com garantia
+                  </p>
                 </div>
               </div>
             </div>
@@ -55,5 +71,5 @@ export default function Expertise() {
         </div>
       </div>
     </section>
-  )
+  );
 }

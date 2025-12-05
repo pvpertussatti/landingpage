@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-accent">PROPV</h3>
-            <p className="text-sm text-muted-foreground">Soluções técnicas confiáveis para sua empresa</p>
+            <p className="text-sm text-muted-foreground">Tecnologia e automação</p>
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-3">Serviços</h4>
