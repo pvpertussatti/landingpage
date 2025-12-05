@@ -50,21 +50,31 @@ export default function Hero() {
           </div>
 
           {/* Lado Direito - Carrossel de Imagens */}
-          <div className="relative h-[500px] lg:h-[600px] flex items-center justify-center">
+          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
             <div className="relative w-full h-full max-w-lg mx-auto">
               {images.map((image, index) => {
                 const position = (index - currentImage + images.length) % images.length;
+                const isActive = position === 0;
+
+                // Mobile: apenas fade simples
+                let mobileClasses = isActive
+                  ? "opacity-100 scale-100 z-30"
+                  : "opacity-0 scale-95 z-10 pointer-events-none";
+
+                // Desktop: efeito 3D com múltiplas imagens
+                let desktopClasses = "";
+                if (position === 0) {
+                  desktopClasses = "md:opacity-100 md:scale-100 md:z-30 md:translate-x-0";
+                } else if (position === 1) {
+                  desktopClasses = "md:opacity-40 md:scale-90 md:z-20 md:translate-x-[60%] md:pointer-events-none";
+                } else {
+                  desktopClasses = "md:opacity-20 md:scale-80 md:z-10 md:-translate-x-[60%] md:pointer-events-none";
+                }
 
                 return (
                   <div
                     key={image.src}
-                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                      position === 0
-                        ? "opacity-100 scale-100 z-30 translate-x-0"
-                        : position === 1
-                        ? "opacity-40 scale-90 z-20 translate-x-[60%]"
-                        : "opacity-20 scale-80 z-10 -translate-x-[60%]"
-                    }`}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${mobileClasses} ${desktopClasses}`}
                   >
                     <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
                       <div className="relative w-full h-full rounded-2xl overflow-hidden">
