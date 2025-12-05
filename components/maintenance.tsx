@@ -8,7 +8,7 @@ export default function Maintenance() {
   const [currentNetworkImage, setCurrentNetworkImage] = useState(0)
 
   const notebookImages = ["/notebook-maintenance.jpg", "/pc.jpeg"]
-  const networkImages = ["/img-1.jpeg", "/img-2.jpeg"]
+  const networkImages = ["/img-1.png", "/img-2.png"]
 
   useEffect(() => {
     const notebookInterval = setInterval(() => {
