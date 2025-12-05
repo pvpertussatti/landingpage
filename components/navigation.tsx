@@ -12,9 +12,17 @@ export default function Navigation() {
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 text-accent">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 text-accent flex-shrink-0">
               <Logo />
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <span className="text-lg font-bold text-foreground tracking-tight leading-none group-hover:text-accent transition-colors">
+                PROPV
+              </span>
+              <span className="text-[10px] text-muted-foreground leading-none tracking-wide">
+                Tecnologia e Automação
+              </span>
             </div>
           </Link>
 

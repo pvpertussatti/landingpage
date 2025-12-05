@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Mail, MapPin } from "lucide-react"
+import Logo from "./logo"
 
 export default function Footer() {
   return (
@@ -7,8 +8,19 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-accent">PROPV</h3>
-            <p className="text-sm text-muted-foreground">Tecnologia e Automação</p>
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-10 h-10 text-accent flex-shrink-0">
+                <Logo />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <h3 className="text-2xl font-bold text-foreground tracking-tight leading-none group-hover:text-accent transition-colors">
+                  PROPV
+                </h3>
+                <p className="text-xs text-muted-foreground leading-none tracking-wide">
+                  Tecnologia e Automação
+                </p>
+              </div>
+            </Link>
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-3">Serviços</h4>
