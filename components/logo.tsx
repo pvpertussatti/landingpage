@@ -2,8 +2,8 @@ import Image from "next/image"
 
 export default function Logo() {
   return (
-    <div className="w-8 h-8">
-      <Image src="/logo.png" alt="PROPV" width={32} height={32} priority />
+    <div className="relative h-10">
+      <Image src="/novaLogo.png" alt="PROPV - Tecnologia e Automação" width={160} height={40} priority className="h-full w-auto" />
     </div>
   )
 }
