@@ -10,6 +10,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "PROPV - Soluções Técnicas Profissionais",
   description: "Especialistas em infraestrutura de TI, redes, backup e automação comercial com 15+ anos de experiência",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
