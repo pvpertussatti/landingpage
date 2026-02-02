@@ -85,7 +85,7 @@ export default function CTA() {
             </div>
 
             <a
-              href="https://wa.me/554891197994"
+              href="https://wa.me/554898104828"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-3 bg-accent text-accent-foreground rounded-full font-semibold hover:opacity-90 transition"

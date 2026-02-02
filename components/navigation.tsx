@@ -31,7 +31,7 @@ export default function Navigation() {
               Contato
             </Link>
             <a
-              href="https://wa.me/554891197994"
+              href="https://wa.me/554898104828"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition"
@@ -62,7 +62,7 @@ export default function Navigation() {
               Contato
             </Link>
             <a
-              href="https://wa.me/554891197994"
+              href="https://wa.me/554898104828"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium text-center hover:opacity-90 transition"
