@@ -167,17 +167,17 @@ export default function Services() {
           className="mt-2 border border-border rounded-xl overflow-hidden bg-background"
           style={{ animation: "fadeSlideIn 0.28s ease forwards" }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0">
+          <div className="flex flex-col">
             {/* Image */}
-            <div className="relative h-48 md:h-auto min-h-[200px] overflow-hidden shrink-0">
+            <div className="relative h-96 w-full overflow-hidden">
               <Image
                 src={current.image}
                 alt={current.label}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 280px"
+                sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/60 hidden md:block" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/70" />
             </div>
 
             {/* Text */}
