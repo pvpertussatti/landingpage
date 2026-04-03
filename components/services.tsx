@@ -125,7 +125,7 @@ export default function Services() {
                 style={{ flex: "0 0 auto" }}
               >
                 <div
-                  className="relative w-16 h-16 transition-all duration-300"
+                  className="relative w-48 h-48 transition-all duration-300"
                   style={{
                     filter: isActive
                       ? "brightness(1.2) drop-shadow(0 0 10px hsl(var(--accent) / 0.6))"
@@ -138,7 +138,7 @@ export default function Services() {
                     alt={service.label}
                     fill
                     className="object-contain transition-all duration-300 group-hover:brightness-110"
-                    sizes="64px"
+                    sizes="192px"
                     style={{
                       filter: "none",
                       transform: isActive ? "none" : undefined,
