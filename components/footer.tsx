@@ -30,6 +30,12 @@ export default function Footer() {
                   PDVs e Automação Comercial
                 </Link>
               </li>
+              
+                <li>
+                <Link href="#services" className="hover:text-foreground transition">
+                  Segurança eletrônica e CFTV
+                </Link>
+              </li>
               <li>
                 <Link href="#services" className="hover:text-foreground transition">
                   Suporte Field Service
