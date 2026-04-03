@@ -27,11 +27,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#services" className="hover:text-foreground transition">
-                  Servidor e Rack Server
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="hover:text-foreground transition">
                   PDVs e Automação Comercial
                 </Link>
               </li>

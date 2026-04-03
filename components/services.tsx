@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Server } from "lucide-react"
 import Image from "next/image"
 
 const services = [
@@ -114,7 +113,7 @@ export default function Services() {
         </div>
 
         {/* Icon row */}
-        <div className="grid grid-cols-6 gap-2 mb-0">
+        <div className="flex justify-center gap-8 md:gap-12 mb-0">
           {services.map((service, index) => {
             const isActive = active === index
             return (
@@ -122,37 +121,33 @@ export default function Services() {
                 key={index}
                 onMouseEnter={() => setActive(index)}
                 onClick={() => setActive(index)}
-                className="flex flex-col items-center gap-2 group focus:outline-none"
+                className="flex flex-col items-center gap-3 group focus:outline-none"
+                style={{ flex: "0 0 auto" }}
               >
                 <div
-                  className={`
-                    w-full aspect-square flex items-center justify-center rounded-xl border transition-all duration-300 p-3
-                    ${isActive
-                      ? "bg-accent/20 border-accent shadow-[0_0_18px_2px_hsl(var(--accent)/0.25)]"
-                      : "bg-background border-border group-hover:border-accent/50 group-hover:bg-accent/10"
-                    }
-                  `}
+                  className="relative w-16 h-16 transition-all duration-300"
+                  style={{
+                    filter: isActive
+                      ? "brightness(1.2) drop-shadow(0 0 10px hsl(var(--accent) / 0.6))"
+                      : "brightness(0.7) grayscale(0.3)",
+                    transform: isActive ? "scale(1.18) translateY(-4px)" : "scale(1)",
+                  }}
                 >
-                  {service.iconImage ? (
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={service.iconImage}
-                        alt={service.label}
-                        fill
-                        className="object-contain"
-                        sizes="80px"
-                      />
-                    </div>
-                  ) : (
-                    <Server
-                      size={28}
-                      className={`transition-colors duration-300 ${isActive ? "text-accent" : "text-muted-foreground group-hover:text-accent"}`}
-                    />
-                  )}
+                  <Image
+                    src={service.iconImage!}
+                    alt={service.label}
+                    fill
+                    className="object-contain transition-all duration-300 group-hover:brightness-110"
+                    sizes="64px"
+                    style={{
+                      filter: "none",
+                      transform: isActive ? "none" : undefined,
+                    }}
+                  />
                 </div>
                 {/* Active indicator dot */}
                 <div
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-accent scale-100" : "bg-transparent scale-0"}`}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-accent scale-100 opacity-100" : "bg-transparent scale-0 opacity-0"}`}
                 />
               </button>
             )
