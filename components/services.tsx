@@ -44,19 +44,6 @@ const services = [
     ],
   },
   {
-    icon: Server,
-    label: "Servidores e Rack Server",
-    image: "/cabeamento_2.png",
-    intro: "Oferecemos soluções completas para montagem, organização, migração e manutenção de racks de servidores, garantindo infraestrutura confiável e de alto desempenho.",
-    items: [
-      "Montagem, organização e manutenção de racks de servidores (Rack Server)",
-      "Projetos, upgrade e migração de tecnologias em racks de servidores",
-      "Testes e medições de fibra óptica e redes LAN",
-      "Testes de porta PoE",
-      "Testes de comprimento e performance de cabos CAT5/CAT6",
-    ],
-  },
-  {
     icon: Zap,
     label: "PDVs e Automação Comercial",
     image: "/pdv_1.jpg",
