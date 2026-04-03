@@ -1,80 +1,221 @@
+"use client"
+
+import { useState } from "react"
 import { Server, Zap, Lock, Cpu, Network, BarChart3 } from "lucide-react"
+import Image from "next/image"
 
 const services = [
   {
     icon: Cpu,
-    title: "Informática e Microinformática",
-    description: ["- Manutenções Preventivas ou Corretivas", "- Atualização de drivers e Software", "- Upgrade e Reparo de Hardware", "- Análises e Diagnósticos", "- Suporte Técnico"],
+    label: "Informática e Microinformática",
+    image: "/informática_1.png",
+    intro: "Oferecemos atendimento em domicílio, escritórios, empresas e estabelecimentos comerciais, garantindo praticidade e agilidade para você e seu negócio. Além disso, disponibilizamos um serviço de leva e traz para o nosso laboratório, onde utilizamos ferramentas profissionais e processos técnicos avançados para assegurar o máximo desempenho e eficiência do seu equipamento.",
+    items: [
+      "Montagem de computadores e periféricos",
+      "Manutenção preventiva e corretiva em desktop e notebooks",
+      "Higienização e limpeza de hardware",
+      "Upgrade e reparo de hardware",
+      "Formatação e atualização de drivers e softwares",
+      "Remoção de vírus, malwares e spywares",
+      "Backup e recuperação de dados",
+      "Análise e diagnóstico técnico",
+      "Otimização térmica",
+      "Suporte técnico remoto",
+      "Monitoramento e manutenção periódica",
+    ],
   },
   {
     icon: Network,
-    title: "Infraestrutura de Rede",
-    description: ["- Cabeamento Estruturado e Conectorização", "- Identificação e Verificação do Cabeamento", "- Readequação e Reestruturação", "- Expansão e Migração de Rede", "- Medições e teste Port Flash"],
+    label: "Infraestrutura de Rede",
+    image: "/cabeamento_1.jpg",
+    intro: "Oferecemos soluções completas em infraestrutura de redes para domicílios, construtoras, empreiteiras, escritórios, empresas e estabelecimentos comerciais, garantindo conectividade estável, segura e de alto desempenho. Realizamos a implantação, organização, padronização de redes e cabeamento estruturado, seguindo as normas ABNT NBR 14565 e TIA-569.",
+    items: [
+      "Elaboração e execução de projetos de cabeamento estruturado e redes",
+      "Passagem de cabos backbone vertical e horizontal",
+      "Cabeamento estruturado e conectorização",
+      "Identificação e verificação do cabeamento",
+      "Readequação e reestruturação de redes",
+      "Montagem de patch panels, keystones e crimpagem de cabos",
+      "Expansão e migração de redes",
+      "Testes e medições de porta (Port Flash)",
+      "Mapeamento e organização de cabeamento",
+      "Testes e medições de fibra óptica e redes LAN",
+      "Verificação de comprimento e performance de cabos CAT5/CAT6",
+    ],
   },
   {
     icon: Server,
-    title: "Servidores e Rack Server",
-    description: ["- Montagem, Organização e Manutenções", "- Upgrade e Migração de Tecnologia", "- Medições de Fibra Óptica e Rede LAN", "- Testes de comprimento de cabo CAT5/CAT6", "- Testes de Porta PoE"],
+    label: "Servidores e Rack Server",
+    image: "/cabeamento_2.png",
+    intro: "Oferecemos soluções completas para montagem, organização, migração e manutenção de racks de servidores, garantindo infraestrutura confiável e de alto desempenho.",
+    items: [
+      "Montagem, organização e manutenção de racks de servidores (Rack Server)",
+      "Projetos, upgrade e migração de tecnologias em racks de servidores",
+      "Testes e medições de fibra óptica e redes LAN",
+      "Testes de porta PoE",
+      "Testes de comprimento e performance de cabos CAT5/CAT6",
+    ],
   },
-  // {
-  //   icon: Lock,
-  //   title: "Backup & Recuperação",
-  //   description: ["Soluções seguras com redundância e proteção de dados"],
-  //   highlight: "Segurança em primeiro lugar",
-  // },
   {
     icon: Zap,
-    title: "PDVs e Automação Comercial",
-    description: ["- Instalações e Atualizações", "- Manutenções no Hardware e Periféricos","- Migração ou Atualização de Software"],
+    label: "PDVs e Automação Comercial",
+    image: "/pdv_1.jpg",
+    intro: "Oferecemos soluções completas de informática para PDVs em lojas, garantindo o funcionamento eficiente, seguro e contínuo do seu sistema de vendas. Atuamos com automação comercial, manutenção preventiva e corretiva de hardware, além de suporte completo em software, assegurando que seu caixa opere sem interrupções.",
+    items: [
+      "Projetos e implantação de soluções para PDV e automação comercial",
+      "Instalação e montagem de equipamentos (hardware)",
+      "Instalação e configuração de periféricos",
+      "Manutenção preventiva e corretiva",
+      "Suporte técnico no local",
+      "Gerenciamento de redes e conectividade",
+      "Configuração de sistemas de vendas e ERP para o varejo",
+    ],
+  },
+  {
+    icon: Lock,
+    label: "Segurança e CFTV",
+    image: "/segurança_1.png",
+    intro: "Oferecemos soluções completas em segurança eletrônica e sistemas de CFTV (Circuito Fechado de Televisão), incluindo o desenvolvimento e execução de projetos personalizados, garantindo o monitoramento contínuo e a proteção do seu patrimônio. Atuamos com instalação, configuração e manutenção de equipamentos, proporcionando mais controle, prevenção e tranquilidade para sua residência, comércio ou negócio.",
+    items: [
+      "Projetos e implantação de sistemas de CFTV e segurança eletrônica",
+      "Instalação e configuração de câmeras de segurança (CFTV)",
+      "Implantação de sistemas de monitoramento local e remoto",
+      "Configuração de gravadores (DVR/HVR/NVR) e armazenamento de imagens",
+      "Manutenção preventiva e corretiva dos equipamentos",
+      "Manutenção de sistemas de CFTV (câmeras analógicas, HD e IP)",
+      "Implantação de infraestrutura, redes dedicadas e cabeamento estruturado",
+    ],
   },
   {
     icon: BarChart3,
-    title: "Suporte Field Service",
-    description: ["- Atendimentos Técnicos Especializado", "- Comunicação Eficaz e Empatia ao Cliente", "- Resolução de Problemas e Adaptabilidade"],
+    label: "Suporte Field Service",
+    image: "/field_1.jpg",
+    intro: "Oferecemos serviços de Field Service altamente especializados para empresas de tecnologia, com atendimento técnico em campo ágil, padronizado e eficiente. Atuamos como extensão da sua operação, garantindo qualidade no atendimento, cumprimento de SLA e suporte técnico diretamente no local do cliente.",
+    items: [
+      "Projetos e implantação de infraestrutura de TI em campo",
+      "Projetos e integração de sistemas de automação industrial e eletrônica",
+      "Instalação e configuração de equipamentos e dispositivos tecnológicos",
+      "Instalação, manutenção e suporte em sistemas eletrônicos e de automação",
+      "Atendimento técnico presencial (Field Service) conforme demanda ou contrato",
+      "Manutenção preventiva e corretiva de hardware, redes e sistemas eletrônicos",
+      "Suporte técnico para usuários finais (hands and eyes)",
+      "Atendimento de chamados com SLA e relatórios técnicos",
+      "Expansão, migração e readequação de ambientes tecnológicos",
+      "Apoio a equipes remotas (NOC/Service Desk)",
+      "Identificação e resolução de falhas em campo",
+      "Documentação técnica e padronização de atendimentos",
+    ],
   },
 ]
 
 export default function Services() {
+  const [active, setActive] = useState(0)
+  const current = services[active]
+
   return (
     <section id="services" className="py-5 md:py-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-16">
+        {/* Header */}
+        <div className="space-y-4 mb-12">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight">
             Serviços
           </h2>
-
-          <div className="w-16 h-1 bg-accent"></div>
+          <div className="w-16 h-1 bg-accent" />
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Soluções técnicas abrangentes, que demandam confiabilidade e performance. 
+            Soluções técnicas abrangentes, que demandam confiabilidade e performance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Icon row */}
+        <div className="grid grid-cols-6 gap-2 mb-0">
           {services.map((service, index) => {
             const Icon = service.icon
+            const isActive = active === index
             return (
-              <div key={index} className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition duration-300" />
-                <div className="relative p-6 border border-border rounded-lg hover:border-accent/50 transition duration-300 h-full flex flex-col bg-background">
-                  <div className="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition">
-                    <Icon size={28} className="text-accent" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                  {service.description.map((d, i) => {
-                    return (
-                      <p key={`d-${i}`} className="text-muted-foreground text-sm leading-relaxed flex-grow">
-                        {
-                          d
-                        }
-                      </p>
-                    )
-                  })}
+              <button
+                key={index}
+                onMouseEnter={() => setActive(index)}
+                onClick={() => setActive(index)}
+                className="flex flex-col items-center gap-2 group focus:outline-none"
+              >
+                <div
+                  className={`
+                    w-full aspect-square flex items-center justify-center rounded-xl border transition-all duration-300
+                    ${isActive
+                      ? "bg-accent/20 border-accent shadow-[0_0_18px_2px_hsl(var(--accent)/0.25)]"
+                      : "bg-background border-border group-hover:border-accent/50 group-hover:bg-accent/10"
+                    }
+                  `}
+                >
+                  <Icon
+                    size={28}
+                    className={`transition-colors duration-300 ${isActive ? "text-accent" : "text-muted-foreground group-hover:text-accent"}`}
+                  />
                 </div>
-              </div>
+                {/* Active indicator dot */}
+                <div
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-accent scale-100" : "bg-transparent scale-0"}`}
+                />
+              </button>
             )
           })}
         </div>
+
+        {/* Content panel */}
+        <div
+          key={active}
+          className="mt-2 border border-border rounded-xl overflow-hidden bg-background"
+          style={{ animation: "fadeSlideIn 0.28s ease forwards" }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0">
+            {/* Image */}
+            <div className="relative h-48 md:h-auto min-h-[200px] overflow-hidden shrink-0">
+              <Image
+                src={current.image}
+                alt={current.label}
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 280px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/60 hidden md:block" />
+            </div>
+
+            {/* Text */}
+            <div className="p-6 md:p-8 flex flex-col justify-start">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 leading-tight">
+                {current.label}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                {current.intro}
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+                Nossos serviços incluem
+              </p>
+              <ul className="space-y-1.5">
+                {current.items.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-accent mt-0.5 shrink-0">–</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }
