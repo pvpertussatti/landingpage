@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Server, Zap, Lock, Cpu, Network, BarChart3 } from "lucide-react"
+import { Server } from "lucide-react"
 import Image from "next/image"
 
 const services = [
   {
-    icon: Cpu,
+    iconImage: "/informatica-e-microinformatica.png",
     label: "Informática e Microinformática",
     image: "/informática_1.png",
     intro: "Oferecemos atendimento em domicílio, escritórios, empresas e estabelecimentos comerciais, garantindo praticidade e agilidade para você e seu negócio. Além disso, disponibilizamos um serviço de leva e traz para o nosso laboratório, onde utilizamos ferramentas profissionais e processos técnicos avançados para assegurar o máximo desempenho e eficiência do seu equipamento.",
@@ -25,8 +25,8 @@ const services = [
     ],
   },
   {
-    icon: Network,
-    label: "Infraestrutura de Rede e Rack Server",
+    iconImage: "/infra-rede.png",
+    label: "Infraestrutura de Rede",
     image: "/cabeamento_1.jpg",
     intro: "Oferecemos soluções completas em infraestrutura de redes para domicílios, construtoras, empreiteiras, escritórios, empresas e estabelecimentos comerciais, garantindo conectividade estável, segura e de alto desempenho. Realizamos a implantação, organização, padronização de redes e cabeamento estruturado, seguindo as normas ABNT NBR 14565 e TIA-569.",
     items: [
@@ -44,7 +44,7 @@ const services = [
     ],
   },
   {
-    icon: Zap,
+    iconImage: "/pdv.png",
     label: "PDVs e Automação Comercial",
     image: "/pdv_1.jpg",
     intro: "Oferecemos soluções completas de informática para PDVs em lojas, garantindo o funcionamento eficiente, seguro e contínuo do seu sistema de vendas. Atuamos com automação comercial, manutenção preventiva e corretiva de hardware, além de suporte completo em software, assegurando que seu caixa opere sem interrupções.",
@@ -59,7 +59,7 @@ const services = [
     ],
   },
   {
-    icon: Lock,
+    iconImage: "/cftv.png",
     label: "Segurança e CFTV",
     image: "/segurança_1.png",
     intro: "Oferecemos soluções completas em segurança eletrônica e sistemas de CFTV (Circuito Fechado de Televisão), incluindo o desenvolvimento e execução de projetos personalizados, garantindo o monitoramento contínuo e a proteção do seu patrimônio. Atuamos com instalação, configuração e manutenção de equipamentos, proporcionando mais controle, prevenção e tranquilidade para sua residência, comércio ou negócio.",
@@ -74,7 +74,7 @@ const services = [
     ],
   },
   {
-    icon: BarChart3,
+    iconImage: "/fieldservice.png",
     label: "Suporte Field Service",
     image: "/field_1.jpg",
     intro: "Oferecemos serviços de Field Service altamente especializados para empresas de tecnologia, com atendimento técnico em campo ágil, padronizado e eficiente. Atuamos como extensão da sua operação, garantindo qualidade no atendimento, cumprimento de SLA e suporte técnico diretamente no local do cliente.",
@@ -116,7 +116,6 @@ export default function Services() {
         {/* Icon row */}
         <div className="grid grid-cols-6 gap-2 mb-0">
           {services.map((service, index) => {
-            const Icon = service.icon
             const isActive = active === index
             return (
               <button
@@ -127,17 +126,29 @@ export default function Services() {
               >
                 <div
                   className={`
-                    w-full aspect-square flex items-center justify-center rounded-xl border transition-all duration-300
+                    w-full aspect-square flex items-center justify-center rounded-xl border transition-all duration-300 p-3
                     ${isActive
                       ? "bg-accent/20 border-accent shadow-[0_0_18px_2px_hsl(var(--accent)/0.25)]"
                       : "bg-background border-border group-hover:border-accent/50 group-hover:bg-accent/10"
                     }
                   `}
                 >
-                  <Icon
-                    size={28}
-                    className={`transition-colors duration-300 ${isActive ? "text-accent" : "text-muted-foreground group-hover:text-accent"}`}
-                  />
+                  {service.iconImage ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={service.iconImage}
+                        alt={service.label}
+                        fill
+                        className="object-contain"
+                        sizes="80px"
+                      />
+                    </div>
+                  ) : (
+                    <Server
+                      size={28}
+                      className={`transition-colors duration-300 ${isActive ? "text-accent" : "text-muted-foreground group-hover:text-accent"}`}
+                    />
+                  )}
                 </div>
                 {/* Active indicator dot */}
                 <div
