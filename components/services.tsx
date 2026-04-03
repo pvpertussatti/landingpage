@@ -26,7 +26,7 @@ const services = [
   },
   {
     icon: Network,
-    label: "Infraestrutura de Rede",
+    label: "Infraestrutura de Rede e Rack Server",
     image: "/cabeamento_1.jpg",
     intro: "Oferecemos soluções completas em infraestrutura de redes para domicílios, construtoras, empreiteiras, escritórios, empresas e estabelecimentos comerciais, garantindo conectividade estável, segura e de alto desempenho. Realizamos a implantação, organização, padronização de redes e cabeamento estruturado, seguindo as normas ABNT NBR 14565 e TIA-569.",
     items: [
