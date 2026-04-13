@@ -113,7 +113,7 @@ export default function Services() {
         </div>
 
         {/* Icon row */}
-        <div className="flex justify-center gap-8 md:gap-12 mb-0">
+        <div className="flex justify-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 mb-0">
           {services.map((service, index) => {
             const isActive = active === index
             return (
@@ -121,11 +121,11 @@ export default function Services() {
                 key={index}
                 onMouseEnter={() => setActive(index)}
                 onClick={() => setActive(index)}
-                className="flex flex-col items-center gap-3 group focus:outline-none"
+                className="flex flex-col items-center gap-2 md:gap-3 group focus:outline-none"
                 style={{ flex: "0 0 auto" }}
               >
                 <div
-                  className="relative w-48 h-48 transition-all duration-300"
+                  className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-40 md:h-40 lg:w-48 lg:h-48 transition-all duration-300"
                   style={{
                     filter: isActive
                       ? "brightness(1.2) drop-shadow(0 0 10px hsl(var(--accent) / 0.6))"
@@ -147,7 +147,7 @@ export default function Services() {
                 </div>
                 {/* Active indicator dot */}
                 <div
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-accent scale-100 opacity-100" : "bg-transparent scale-0 opacity-0"}`}
+                  className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-accent scale-100 opacity-100" : "bg-transparent scale-0 opacity-0"}`}
                 />
               </button>
             )
@@ -178,7 +178,7 @@ export default function Services() {
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 leading-tight">
                 {current.label}
               </h3>
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
                 {current.intro}
               </p>
               <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
@@ -186,7 +186,7 @@ export default function Services() {
               </p>
               <ul className="space-y-1.5">
                 {current.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <li key={i} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground">
                     <span className="text-accent mt-0.5 shrink-0">–</span>
                     <span>{item}</span>
                   </li>
