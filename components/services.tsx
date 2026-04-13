@@ -178,7 +178,7 @@ export default function Services() {
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 leading-tight">
                 {current.label}
               </h3>
-              <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground mb-5 leading-relaxed text-justify">
                 {current.intro}
               </p>
               <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
