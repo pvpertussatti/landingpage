@@ -16,13 +16,14 @@ export default function Hero() {
   const [currentTechImage, setCurrentTechImage] = useState(0);
 
   useEffect(() => {
-    // Alterna entre hero tech e hero Getway a cada 8 segundos
+    // Alterna entre hero tech e hero Getway
+    // Getway fica 12s, tech fica 10s
     const heroInterval = setInterval(() => {
       setShowGetway((prev) => !prev);
-    }, 8000);
+    }, showGetway ? 12000 : 10000);
 
     return () => clearInterval(heroInterval);
-  }, []);
+  }, [showGetway]);
 
   useEffect(() => {
     // Carrossel das imagens tech (só quando não está mostrando Getway)
@@ -126,7 +127,7 @@ export default function Hero() {
               <span className="text-accent font-semibold">varejo alimentar.</span>
             </p>
 
-            <div className="grid grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-2 gap-4 pt-4 pb-8">
               {[
                 { icon: Calendar, label: "DESDE 1990", subtitle: "Tradição e inovação no varejo." },
                 { icon: MapPin, label: "CAMPINAS - SP", subtitle: "São Paulo. Atuação nacional." },
@@ -147,17 +148,15 @@ export default function Hero() {
           </div>
 
           {/* Lado Direito - Imagem Getway */}
-          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
-            <div className="relative w-full h-full max-w-2xl mx-auto">
-              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white p-8 flex items-center justify-center">
-                <Image
-                  src="/solucoes-getway.png"
-                  alt="Getway"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
+          <div className="relative h-[400px] md:h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end">
+            <div className="relative w-full h-full lg:w-[120%] lg:-mr-24">
+              <Image
+                src="/solucoes-getway.png"
+                alt="Getway"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </div>
