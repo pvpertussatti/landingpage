@@ -6,6 +6,7 @@ import Features from "@/components/features"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
 import About from "@/components/about"
+import GatewaySection from "@/components/gateway-section"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
+      <GatewaySection />
       <Services />
       <Features />
       <CTA />

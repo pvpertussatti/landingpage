@@ -1,14 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Handshake, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-  { src: "/1.webp", alt: "Notebook" },
-  { src: "/2.jpg", alt: "Computador" },
-  { src: "/3.jpg", alt: "Servidor" },
+  { src: "/1.webp", alt: "Notebook", type: "standard" },
+  { src: "/2.jpg", alt: "Computador", type: "standard" },
+  { src: "/3.jpg", alt: "Servidor", type: "standard" },
+  { src: "/solucoes-getway.png", alt: "Gateway", type: "gateway" },
+];
+
+const gatewayBadges = [
+  { icon: Calendar, label: "DESDE 1990", subtitle: "Tradição e inovação no varejo." },
+  { icon: MapPin, label: "CAMPINAS - SP", subtitle: "São Paulo. Atuação nacional." },
+  { icon: Handshake, label: "+ DE 1.600", subtitle: "Clientes ativos em todo o Brasil." },
+  { icon: Users, label: "FOCO NO VAREJO", subtitle: "Alimentar, supermercados e conveniência." },
 ];
 
 export default function Hero() {
@@ -22,6 +30,8 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  const isGateway = images[currentImage].type === "gateway";
+
   return (
     <section className="relative pt-2 pb-2 md:pt-3 md:pb-3 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-7xl mx-auto">
@@ -29,24 +39,60 @@ export default function Hero() {
           {/* Lado Esquerdo - Texto */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Suporte técnico <br />
-              <span className="text-accent">onde você estiver.</span>
+              {isGateway ? (
+                <>
+                  Tecnologia que conecta <br />
+                  <span className="text-accent">gestão que transforma.</span>
+                </>
+              ) : (
+                <>
+                  Suporte técnico <br />
+                  <span className="text-accent">onde você estiver.</span>
+                </>
+              )}
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Especialista em soluções técnicas. Manutenções preventivas e
-              corretivas, infraestrutura crítica e suporte técnico. Garantimos
-              máxima performance para seu negócio.
+              {isGateway ? (
+                <>
+                  Gateway Automação Comercial é uma empresa brasileira fundada em 1990 e especializada no desenvolvimento de software de gestão (ERP) para o{" "}
+                  <span className="text-accent font-semibold">varejo alimentar.</span>
+                </>
+              ) : (
+                <>
+                  Especialista em soluções técnicas. Manutenções preventivas e
+                  corretivas, infraestrutura crítica e suporte técnico. Garantimos
+                  máxima performance para seu negócio.
+                </>
+              )}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href={"#contact"}
-                className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
-              >
-                Solicitar serviço <ArrowRight size={18} />
-              </Link>
-            </div>
+            {isGateway && (
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                {gatewayBadges.map((badge, index) => (
+                  <div key={index} className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                      <badge.icon className="text-accent" size={24} />
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm text-foreground">{badge.label}</p>
+                      <p className="text-xs text-muted-foreground leading-tight">{badge.subtitle}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {!isGateway && (
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link
+                  href={"#contact"}
+                  className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
+                >
+                  Solicitar serviço <ArrowRight size={18} />
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Lado Direito - Carrossel de Imagens */}
@@ -55,6 +101,7 @@ export default function Hero() {
               {images.map((image, index) => {
                 const position = (index - currentImage + images.length) % images.length;
                 const isActive = position === 0;
+                const isGatewayImage = image.type === "gateway";
 
                 // Mobile: apenas fade simples
                 let mobileClasses = isActive
@@ -77,12 +124,12 @@ export default function Hero() {
                     className={`absolute inset-0 transition-all duration-700 ease-in-out ${mobileClasses} ${desktopClasses}`}
                   >
                     <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                      <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white">
                         <Image
                           src={image.src}
                           alt={image.alt}
                           fill
-                          className="object-cover"
+                          className={isGatewayImage ? "object-contain p-8" : "object-cover"}
                           priority={index === 0}
                         />
                       </div>
