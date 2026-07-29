@@ -17,10 +17,10 @@ export default function Hero() {
 
   useEffect(() => {
     // Alterna entre hero tech e hero Getway
-    // Getway fica 12s, tech fica 10s
+    // Getway fica 16s, tech fica 10s
     const heroInterval = setInterval(() => {
       setShowGetway((prev) => !prev);
-    }, showGetway ? 12000 : 10000);
+    }, showGetway ? 16000 : 10000);
 
     return () => clearInterval(heroInterval);
   }, [showGetway]);
@@ -116,8 +116,8 @@ export default function Hero() {
           }`}
         >
           {/* Lado Esquerdo - Texto */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+          <div className="space-y-8 animate-fade-in-up max-w-2xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
               Tecnologia que conecta <br />
               <span className="text-accent">gestão que transforma.</span>
             </h1>
@@ -148,13 +148,13 @@ export default function Hero() {
           </div>
 
           {/* Lado Direito - Imagem Getway */}
-          <div className="relative h-[400px] md:h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end">
-            <div className="relative w-full h-full lg:w-[120%] lg:-mr-24">
+          <div className="relative h-[500px] md:h-[600px] lg:h-[750px] flex items-center justify-center lg:justify-end">
+            <div className="relative w-full h-full lg:w-[130%] lg:-mr-32 animate-float">
               <Image
                 src="/solucoes-getway.png"
                 alt="Getway"
                 fill
-                className="object-contain"
+                className="object-contain drop-shadow-2xl"
                 priority
               />
             </div>
