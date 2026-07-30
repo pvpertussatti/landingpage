@@ -17,10 +17,10 @@ export default function Hero() {
 
   useEffect(() => {
     // Alterna entre hero tech e hero Getway
-    // Getway fica 16s, tech fica 10s
+    // Ambos ficam 20s
     const heroInterval = setInterval(() => {
       setShowGetway((prev) => !prev);
-    }, showGetway ? 16000 : 10000);
+    }, 20000);
 
     return () => clearInterval(heroInterval);
   }, [showGetway]);
@@ -38,11 +38,13 @@ export default function Hero() {
 
   return (
     <section className="relative pt-2 pb-2 md:pt-3 md:pb-3 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative">
         {/* HERO SUPORTE TÉCNICO */}
         <div
-          className={`grid lg:grid-cols-2 gap-12 items-center min-h-[600px] transition-all duration-700 ${
-            showGetway ? "opacity-0 absolute inset-0 pointer-events-none" : "opacity-100"
+          className={`grid lg:grid-cols-2 gap-12 items-center min-h-[600px] transition-all duration-1000 ease-in-out ${
+            showGetway
+              ? "opacity-0 scale-95 absolute inset-0 pointer-events-none"
+              : "opacity-100 scale-100"
           }`}
         >
           {/* Lado Esquerdo - Texto */}
@@ -111,8 +113,10 @@ export default function Hero() {
 
         {/* HERO GETWAY */}
         <div
-          className={`grid lg:grid-cols-2 gap-12 items-center min-h-[600px] transition-all duration-700 ${
-            showGetway ? "opacity-100" : "opacity-0 absolute inset-0 pointer-events-none"
+          className={`grid lg:grid-cols-2 gap-12 items-center min-h-[600px] transition-all duration-1000 ease-in-out ${
+            showGetway
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-95 absolute inset-0 pointer-events-none"
           }`}
         >
           {/* Lado Esquerdo - Texto */}

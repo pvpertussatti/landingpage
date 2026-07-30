@@ -12,8 +12,8 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <GetwaySection />
       <Services />
+      <GetwaySection />
       <CTA />
       <Footer />
     </main>
