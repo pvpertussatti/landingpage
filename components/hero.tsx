@@ -47,31 +47,8 @@ export default function Hero() {
               : "opacity-100 scale-100"
           }`}
         >
-          {/* Lado Esquerdo - Texto */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Suporte técnico <br />
-              <span className="text-accent">onde você estiver.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Especialista em soluções técnicas. Manutenções preventivas e
-              corretivas, infraestrutura crítica e suporte técnico. Garantimos
-              máxima performance para seu negócio.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href={"#contact"}
-                className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
-              >
-                Solicitar serviço <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-
-          {/* Lado Direito - Carrossel de Imagens */}
-          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
+          {/* Lado Direito - Carrossel de Imagens (primeiro no mobile) */}
+          <div className="relative h-[300px] md:h-[500px] lg:h-[600px] flex items-center justify-center lg:order-2">
             <div className="relative w-full h-full max-w-lg mx-auto">
               {techImages.map((image, index) => {
                 const position = (index - currentTechImage + techImages.length) % techImages.length;
@@ -109,6 +86,29 @@ export default function Hero() {
               })}
             </div>
           </div>
+
+          {/* Lado Esquerdo - Texto (segundo no mobile) */}
+          <div className="space-y-6 animate-fade-in-up lg:order-1">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+              Suporte técnico <br />
+              <span className="text-accent">onde você estiver.</span>
+            </h1>
+
+            <p className="text-base md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              Especialista em soluções técnicas. Manutenções preventivas e
+              corretivas, infraestrutura crítica e suporte técnico. Garantimos
+              máxima performance para seu negócio.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link
+                href={"#contact"}
+                className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg"
+              >
+                Solicitar serviço <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* HERO GETWAY */}
@@ -119,23 +119,9 @@ export default function Hero() {
               : "opacity-0 scale-95 absolute inset-0 pointer-events-none"
           }`}
         >
-          {/* Lado Esquerdo - Texto */}
-          <div className="space-y-8 animate-fade-in-up max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Tecnologia que conecta <br />
-              <span className="text-accent">gestão que transforma.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Getway Automação Comercial é uma empresa brasileira fundada em 1990 e especializada no desenvolvimento de software de gestão (ERP) para o{" "}
-              <span className="text-accent font-semibold">varejo alimentar.</span>
-            </p>
-
-          </div>
-
-          {/* Lado Direito - Imagem Getway */}
-          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-start justify-center lg:justify-end pt-8">
-            <div className="relative w-full h-[120%] lg:w-[130%] lg:-mr-32 animate-float">
+          {/* Lado Direito - Imagem Getway (primeiro no mobile) */}
+          <div className="relative h-[300px] md:h-[500px] lg:h-[600px] flex items-center md:items-start justify-center lg:justify-end md:pt-8 lg:order-2">
+            <div className="relative w-full h-full md:h-[120%] lg:w-[130%] lg:-mr-32 animate-float">
               <Image
                 src="/solucoes-getway.png"
                 alt="Getway"
@@ -144,6 +130,19 @@ export default function Hero() {
                 priority
               />
             </div>
+          </div>
+
+          {/* Lado Esquerdo - Texto (segundo no mobile) */}
+          <div className="space-y-6 animate-fade-in-up max-w-2xl lg:order-1">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              Tecnologia que conecta <br />
+              <span className="text-accent">gestão que transforma.</span>
+            </h1>
+
+            <p className="text-base md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              Getway Automação Comercial é uma empresa brasileira fundada em 1990 e especializada no desenvolvimento de software de gestão (ERP) para o{" "}
+              <span className="text-accent font-semibold">varejo alimentar.</span>
+            </p>
           </div>
         </div>
       </div>
