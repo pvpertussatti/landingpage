@@ -8,7 +8,7 @@ export default function GetwaySection() {
       <div className="max-w-7xl mx-auto">
         <a
           href="#contact"
-          className="block relative w-full aspect-[21/9] md:aspect-[21/6] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+          className="block relative w-full aspect-[16/9] md:aspect-[16/5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
         >
           <Image
             src="/banner.jpeg"
