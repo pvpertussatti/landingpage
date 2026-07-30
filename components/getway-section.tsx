@@ -8,13 +8,14 @@ export default function GetwaySection() {
       <div className="max-w-7xl mx-auto">
         <a
           href="#contact"
-          className="block relative w-full aspect-[16/9] md:aspect-[16/5] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+          className="block relative w-full rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
         >
           <Image
             src="/banner.jpeg"
             alt="Getway Automação Comercial - Franqueado Autorizado"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            width={1920}
+            height={600}
+            className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
             priority
           />
         </a>
