@@ -7,7 +7,9 @@ export default function GetwaySection() {
     <section id="getway" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <a
-          href="#contact"
+          href="https://getway.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
           className="block relative w-full rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
         >
           <Image
