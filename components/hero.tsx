@@ -127,29 +127,11 @@ export default function Hero() {
               <span className="text-accent font-semibold">varejo alimentar.</span>
             </p>
 
-            <div className="grid grid-cols-2 gap-4 pt-4 pb-8">
-              {[
-                { icon: Calendar, label: "DESDE 1990", subtitle: "Tradição e inovação no varejo." },
-                { icon: MapPin, label: "CAMPINAS - SP", subtitle: "São Paulo. Atuação nacional." },
-                { icon: Handshake, label: "+ DE 1.600", subtitle: "Clientes ativos em todo o Brasil." },
-                { icon: Users, label: "FOCO NO VAREJO", subtitle: "Alimentar, supermercados e conveniência." },
-              ].map((badge, index) => (
-                <div key={index} className="flex gap-3 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <badge.icon className="text-accent" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm text-foreground">{badge.label}</p>
-                    <p className="text-xs text-muted-foreground leading-tight">{badge.subtitle}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Lado Direito - Imagem Getway */}
-          <div className="relative h-[500px] md:h-[600px] lg:h-[750px] flex items-center justify-center lg:justify-end">
-            <div className="relative w-full h-full lg:w-[130%] lg:-mr-32 animate-float">
+          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-start justify-center lg:justify-end pt-8">
+            <div className="relative w-full h-[120%] lg:w-[130%] lg:-mr-32 animate-float">
               <Image
                 src="/solucoes-getway.png"
                 alt="Getway"
