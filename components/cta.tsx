@@ -67,7 +67,7 @@ export default function CTA() {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                 Pronto para elevar o desempenho de seus equipamentos?{" "}
+                Entre em contato.{" "}
               </h2>
               <p className="text-lg text-muted opacity-90">
                 Entre em contato, estaremos à disposição para responder prontamente.
