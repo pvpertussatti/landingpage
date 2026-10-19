@@ -59,7 +59,7 @@ const services = [
   },
   {
     iconImage: "/cftv.png",
-    label: "Segurança e CFTV",
+    label: "Segurança Eletrônica",
     image: "/segurança_1.png",
     intro: "Oferecemos soluções completas em segurança eletrônica e sistemas de CFTV (Circuito Fechado de Televisão), incluindo o desenvolvimento e execução de projetos personalizados, garantindo o monitoramento contínuo e a proteção do seu patrimônio. Atuamos com instalação, configuração e manutenção de equipamentos, proporcionando mais controle, prevenção e tranquilidade para sua residência, comércio ou negócio.",
     items: [
